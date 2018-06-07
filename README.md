@@ -13,7 +13,7 @@ identifies the values which are not mapped so far and concatenates these values 
 
 To prevent overwriting of the input file the output file name has the form <source facet name><current time in milliseconds>.csv.
 
-## reuirements
+## requirements
 - Java Runtume Environnement (JRE) version 8 or higher
 - An internet connection
   
