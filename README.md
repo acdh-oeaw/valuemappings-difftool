@@ -22,7 +22,7 @@ To prevent overwriting of the input file the output file name has the form <sour
 
 To run the difftool, open a text console and execute the following command:
 
-java -jar difftool [-c <configuration file>] -i <csv input file>[ <csv input file>]...
+`java -jar difftool [-c <configuration file>] -i <csv input file>[ <csv input file>]...`
 
 The program has two parameters: 
 - optional parameter -c followed by the name of one configuration file. 
