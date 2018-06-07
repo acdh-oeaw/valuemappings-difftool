@@ -21,9 +21,9 @@ public class CSVProcessor {
     }
     
     
-    public TableModel readCSVFile(File csvFile) throws IOException {
+    public TableModel readCSVFile(String csvFileName) throws IOException {
         
-        BufferedReader reader = new BufferedReader(new FileReader(csvFile));
+        BufferedReader reader = new BufferedReader(new FileReader(csvFileName));
         
         String line;
         
