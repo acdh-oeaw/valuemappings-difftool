@@ -26,7 +26,7 @@ public class SolrManager {
         
         
         
-        SolrQuery query = new SolrQuery().setQuery("*:*").setFacet(true); 
+        SolrQuery query = new SolrQuery().setQuery("*:*").setFacet(true).setFacetLimit(-1); 
         
         query.addFacetField(this.FACETS);
         
