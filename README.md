@@ -29,6 +29,6 @@ The program has two parameters:
 If not set, the program will use a default configuration file which is included in the jar-archiv. 
 
 **Attention: Since the database is now password protected, the difftool WILL NOT WORK unless you either change the parameter solr_url in the included configuration file or in the external configuration file in the form: 
-https://<username>:<password>@<server-url>/solr/vlo-index**
+`https://<username>:<password>@<server-url>/solr/vlo-index`**
 
 - mandatory parameter -i followed by the name of at least one csv input file
