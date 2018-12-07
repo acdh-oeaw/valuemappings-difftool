@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -116,12 +117,18 @@ public class Diff {
                 List<String> facetValues = SolrManager.getFacetValues(facetFields, headers.get(column));
                 
                 for(List<String> row : model.getRows()) {
-                    if(row.get(column).equals("!") || row.get(column).isEmpty()) {
-                        facetValues.remove(row.get(0));
-                        continue;
+                    if(! row.get(column).isEmpty() && ! row.get(column).equals("!")) {
+
+                        for(String value : row.get(column).split(this.properties.getProperty("value-delimiter", ";")))
+                            facetValues.remove(value.trim());
+                    
                     }
-                    for(String value : row.get(column).split(this.properties.getProperty("value-delimiter", ";")))
-                        facetValues.remove(value.trim());
+                    if(row.get(0).startsWith("~")) { //is a regular expression
+                        facetValues = facetValues.stream().filter(s -> !s.matches(row.get(0).substring(1))).collect(Collectors.toList());
+                    }
+                    else
+                        facetValues.remove(row.get(0));
+                    
                 }
                 
                 
